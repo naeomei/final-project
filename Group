@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickItems(View v){
 
-        ItemsTxt = findViewById(R. id. Items);
         PlacesTxt = findViewById(R. id. Place);
+
+        PlacesTxt.setText(Places[random(0,3)]);
     }
 
     public int random(int min, int max) {
