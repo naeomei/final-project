@@ -1,14 +1,49 @@
-package com.example.myapplicationfinalproject;
+package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    String[] Items = {"Sleeping Bag", "Tarp", "Flint & Steel", "Book", "Ax", "Machete", "Fishing Gear", "Salt", "Spile", "Pot"};
+    String[] Places = {"Desert", "Forest", "Island", "Tundra"};
+
+    TextView ItemsTxt;
+    TextView PlacesTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void onClickStart(View v){
+
+        ItemsTxt = findViewById(R. id. Items);
+
+        for(int i = 0; i < Items.length; i++) {
+            String Prev = ItemsTxt.getText().toString();
+            ItemsTxt.setText(Items[i] + ", " + Prev);
+            System.out.println(Items[i]);
+        }
+    }
+
+    public void onClickItems(View v){
+
+        ItemsTxt = findViewById(R. id. Items);
+        PlacesTxt = findViewById(R. id. Place);
+    }
+
+    public int random(int min, int max) {
+        Random random = new Random();
+        Integer randInt = random.nextInt((max - min) + 1) + min;
+        System.out.println(randInt);
+
+        return randInt;
     }
 }
