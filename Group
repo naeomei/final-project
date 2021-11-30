@@ -49,8 +49,13 @@ public class MainActivity extends AppCompatActivity {
         String ItemsTaken = TakeItems.getText().toString();
 
         if(ItemList.contains(ItemsTaken)) {
-            String Prev = SelItems.getText().toString();
-            SelItems.setText(Prev + ", " + ItemsTaken);
+            if(SelItems.length() == 0) {
+                SelItems.setText(ItemsTaken);
+            }
+            else{
+                String Prev = SelItems.getText().toString();
+                SelItems.setText(Prev + ", " + ItemsTaken);
+            }
         }
         else{
             TakeItems.setText("Item Not Available");
